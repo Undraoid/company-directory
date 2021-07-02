@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Company Admin App">
+    <meta name="keywords" content="HTML, CSS, Bootstrap, JavaScript, Leaflet, AJAX, JSON, PHP">
+    <meta name="author" content="Shashi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <title>Company Directory</title>
+  </head>
+  <body>
+      <!--Navbar-->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-tie"></i>
+                Company-Directory
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Add</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Update</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Delete</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Modify</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="d-flex flex-row-reverse">
+            <select size=""  id="countrySelect" name="countrySelect" class="form-control p-2">
+              <option>Human Resources</option>
+              <option>Sales</option>
+              <option>Marketing</option>
+              <option>Legal</option>
+              <option>Services</option>
+              <option>Research and Development</option>
+              <option>Product Management</option>
+              <option>Training</option>
+              <option>Support</option>
+              <option>Engineering</option>
+              <option>Accounting</option>
+              <option>Business Development</option>
+            </select>
+            <input class="form-control mr-sm-2 p-2" type="search" placeholder="Search by" aria-label="Search">
+          </div>
+
+
+          <script src="js/jquery-min.js"></script>       
+          <script src="js/navbar.js"></script>
+          <script src="js/dataDisplay.js"></script>
+  </body>
+  </html>

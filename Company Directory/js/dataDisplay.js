@@ -3,7 +3,7 @@
 
     $.ajax({
         type: 'GET',
-        url: 'companydirectory/libs/php/getDepartmentByID.php',
+        url: 'https://umarh.co.uk/companydirectory/libs/php/getDepartmentByID.php',
         success: function(data){
          console.log('success',data);
         }

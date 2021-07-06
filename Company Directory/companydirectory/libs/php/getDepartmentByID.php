@@ -13,8 +13,8 @@
 
 	include("config.php");
 
-	$conn = new mysqli($host_name,$database,$user_name,$password);
-
+	$conn = new mysqli($host_name, $user_name, $password, $database);
+	
 	if (mysqli_connect_errno()) {
 		
 		$output['status']['code'] = "300";
@@ -33,7 +33,7 @@
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
 
-	$query = 'SELECT id, name, locationID FROM department WHERE id = ' . $_REQUEST['id'];
+	$query = 'SELECT id, name, locationID FROM department WHERE id = ' . isset($_REQUEST) && isset($_REQUEST['id']) ? $_REQUEST['id'] : 'test';
 
 	$result = $conn->query($query);
 	

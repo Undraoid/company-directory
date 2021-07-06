@@ -1,10 +1,18 @@
 //companydirectory/libs/php/getDepartmentByID.php
 
-
-    $.ajax({
-        type: 'GET',
-        url: 'https://umarh.co.uk/companydirectory/libs/php/getDepartmentByID.php',
-        success: function(data){
-         console.log('success',data);
-        }
-    });
+$(document).ready(function() {
+    $('#searchButton').click(function(){
+        $.ajax({
+            type: 'GET',
+            url: 'companydirectory/libs/php/getDepartmentByID.php',
+            dataType: 'json',
+            data: {
+                id: $('departmentSelect').val(),
+            },
+            success: function(result){
+             console.log('success',result);
+            }
+        });
+    
+    })
+})

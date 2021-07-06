@@ -7,7 +7,7 @@ $(document).ready(function() {
             url: 'companydirectory/libs/php/getDepartmentByID.php',
             dataType: 'json',
             data: {
-                id: $('departmentSelect').val(),
+                id: $('#departmentSelect').val(),
             },
             success: function(result){
              console.log('success',result);

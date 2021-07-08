@@ -40,7 +40,7 @@
             </div>
           </nav>
 
-   <div class="d-flex flex-row-reverse">
+           <div class="d-flex flex-row-reverse">
             <button type="button" class="btn btn-outline-dark form-control p-2" id="searchButton">Search</button>
             <select size=""  id="departmentSelect" name="departmentSelect" class="form-control p-2">
               <option value="1">Human Resources</option>
@@ -56,10 +56,20 @@
               <option value="11">Accounting</option>
               <option value="12">Business Development</option>
             </select>
-            <input class="form-control mr-sm-2 p-2" type="search" placeholder="Search by" aria-label="Search">
+             
+             
+                <select size=""  id="locationSelect" name="locationSelect" class="form-control p-2">
+              <option value="1">London</option>
+              <option value="2">New York</option>
+              <option value="3">Paris</option>
+              <option value="4">Munich</option>
+              <option value="5">Rome</option>
+            </select>
+             
+             
           </div>
-      
-      <table class="table">
+    
+    <table class="table">
             <thead class="thead-light">
               <tr>
                 <th scope="col">ID</th>
@@ -67,7 +77,7 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">Job Title</th>
                 <th scope="col">Email</th>
-                <th scope="col">Department ID</th>
+                <th scope="col">Department</th>
               </tr>
             </thead>
             <tbody>
@@ -97,6 +107,7 @@
               </tr>
             </tbody>
           </table>
+
 
 
 

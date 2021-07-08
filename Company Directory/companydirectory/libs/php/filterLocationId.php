@@ -33,8 +33,7 @@
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
 
-	$query = 'SELECT * FROM personnel,location,department WHERE department.id =' . $_REQUEST['departmentId'] . 'AND department.locationID = ' . $_REQUEST['locationId'];
-
+	$query = 'SELECT * FROM personnel,location,department WHERE department.id =' . $_REQUEST['departmentId'] . ' AND personnel.departmentID = ' . $_REQUEST['departmentId'];
 	$result = $conn->query($query);
 	
 	if (!$result) {
@@ -52,7 +51,7 @@
 
 	}
    
-   	$data = [];
+$data = [];
 
 	while ($row = mysqli_fetch_assoc($result)) {
 

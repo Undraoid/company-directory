@@ -7,11 +7,28 @@ $(document).ready(function() {
             url: 'companydirectory/libs/php/filterLocationId.php',
             dataType: 'json',
             data: {
-                departmentId: $('#locationSelect').val(),
-                locationId: $('#departmentSelect').val()
+             departmentId: $('#departmentSelect').val()
             },
             success: function(result){
-             console.log('success',result);
+var table = $("tbody");
+table.empty();
+              
+for(var i=0; i<result.data.length; i+=5){
+    console.log(result.data[i]);
+ 
+  
+  var row = `
+    <tr>
+      <th scope="row">${result.data[i].firstName}</th>
+      <td>${result.data[i].lastName}</td>
+      <td>${result.data[i].jobTitle}</td>
+      <td>${result.data[i].email}</td>
+      <td>${result.data[i].name}</td>
+    </tr>`
+
+     table.append(row);
+  
+}
             }
         });
     

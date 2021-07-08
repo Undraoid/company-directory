@@ -4,10 +4,11 @@ $(document).ready(function() {
     $('#searchButton').click(function(){
         $.ajax({
             type: 'GET',
-            url: 'companydirectory/libs/php/getDepartmentByID.php',
+            url: 'companydirectory/libs/php/filterLocationId.php',
             dataType: 'json',
             data: {
-                id: $('#departmentSelect').val(),
+                departmentId: $('#locationSelect').val(),
+                locationId: $('#departmentSelect').val()
             },
             success: function(result){
              console.log('success',result);

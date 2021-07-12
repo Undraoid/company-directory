@@ -1,6 +1,6 @@
 //companydirectory/libs/php/getDepartmentByID.php
 
-//$(document).ready(function() {
+$(document).ready(function() {
     $('#searchButton').click(function(){
         $.ajax({
             type: 'GET',
@@ -60,14 +60,17 @@ for(var i=0; i<result.data.length; i+=5){
     })
 })
   
+  
 $('#buttonAdd').click(function(){
+$('form').submit(function (evt) {
+    evt.preventDefault();
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: 'companydirectory/libs/php/addStaff.php',
         data: {
-         name: $("#fn"),
-         surname: $("#ln"),
-         email: $("#email"),
+         name: $("#fn").val(),
+         surname: $("#ln").val(),
+         email: $("#email").val(),
          departmentId: $("#InputSelect3").val()
         },
         success: function(result){
@@ -75,6 +78,7 @@ console.log("New Staff Added!" + result.data);
         }
     })
 })
+})
 
   
-//})
+})

@@ -9,3 +9,18 @@ table {
     margin-top: 50px;
 }
 
+#fn, #ln, #email{
+    width: 75%;
+}
+
+#InputSelect {
+    width: 75%;
+}
+
+#InputSelect2 {
+  width: 75%;
+}
+
+#InputSelect3 {
+  width: 75%;
+}

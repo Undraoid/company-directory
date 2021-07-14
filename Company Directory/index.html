@@ -54,10 +54,70 @@
             <div class="form-group">
               <label for="exampleInputEmail1">First Name</label>
               <input type="text" class="form-control" id="fn" aria-describedby="emailHelp" placeholder="Enter First Name" required>
+            </div><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Company Admin App">
+    <meta name="keywords" content="HTML, CSS, Bootstrap, JavaScript, Leaflet, AJAX, JSON, PHP">
+    <meta name="author" content="Shashi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css"/>
+    <title>Company Directory</title>
+  </head>
+  <body>
+                   
+      <!--Navbar-->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-tie"></i>
+                Company-Directory
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-toggle="modal" id="addButton" data-target="#myModal">+ <i class="fas fa-user-tie"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-toggle="modal" data-target="#deleteModal">- <i class="fas fa-user-tie"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-toggle="modal"  data-target="#updateModal"># <i class="fas fa-user-tie"></i></a>
+                </li>
+              </ul>
+            </div>
+    </nav>
+    
+    
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Staff</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">First Name</label>
+              <input type="text" class="form-control" id="fn" aria-describedby="emailHelp" placeholder="Enter First Name" required>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Last Name</label>
               <input type="text" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter Last Name" required>
+            </div>
+             <div class="form-group">
+              <label for="exampleInputEmail1">Job Title</label>
+              <input type="text" class="form-control" id="jobtitle" aria-describedby="emailHelp" placeholder="Enter Job Title" required>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
@@ -86,7 +146,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" id="buttonAdd" class="btn btn-success">Add</button>
-        </form>
+          </form>
         </div>
       </div>
     </div>
@@ -104,7 +164,7 @@
           </div>
           <div class="modal-body">
             
-            <form>
+            <form class="form2">
               <div class="form-group">
                 <label for="InputSelect">Department</label>
                 <select class="form-control" id="InputSelect3">
@@ -134,12 +194,77 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-danger">Remove</button>
+            <button type="submit" id="buttonRemove" class="btn btn-danger">Remove</button>
           </form>
           </div>
         </div>
       </div>
       </div>
+    
+    
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Update Staff</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+              <form>
+                <div class="form-group">
+                  <label for="InputSelect">Department</label>
+                  <select class="form-control" id="InputSelect">
+                    <option value="1">Human Resources</option>
+                <option value="2">Sales</option>
+                <option value="2">Marketing</option>
+                <option value="1">Legal</option>
+                <option value="1">Services</option>
+                <option value="3">Research and Development</option>
+                <option value="3">Product Management</option>
+                <option value="4">Training</option>
+                <option value="4">Support</option>
+                <option value="5">Engineering</option>
+                <option value="5">Accounting</option>
+                <option value="3">Business Development</option>
+                  </select>
+                </div>
+         
+                <div class="form-group">
+                  <label for="InputSelect">Staff</label>
+                  <select class="form-control" id="InputSelect2">
+  
+                  </select>
+                </div>
+         
+                <div class="form-group">
+                  <label for="InputSelect">Info</label>
+                  <select class="form-control" id="InputSelect2">
+                 <option>First Name</option>
+                 <option>Last Name</option>
+                 <option>Job Title</option>
+                 <option>Email</option>
+                 <option>Department</option>
+
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Change</label>
+                  <input type="text" class="form-control" id="changeInput" aria-describedby="emailHelp" placeholder="Enter New Info" required>
+                </div>
+        
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
+              <button type="submit" id="buttonRemove" class="btn btn-primary">Update</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        </div>
 
 
     

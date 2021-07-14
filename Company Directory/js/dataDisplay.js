@@ -62,23 +62,45 @@ for(var i=0; i<result.data.length; i+=5){
   
   
 $('#buttonAdd').click(function(){
-$('form').submit(function (evt) {
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'companydirectory/libs/php/addStaff.php',
+            data: {
+             name: $("#fn").val(),
+             surname: $("#ln").val(),
+             titleJob: $('#jobtitle').val(),
+             email: $("#email").val(),
+             departmentId: $("#InputSelect3").val()
+            },
+            success: function(result){
+    console.log("New Staff Added!" + result.data);
+            }
+        })
+        $(this).unbind('submit').submit()
+    })
+    })
+  
+  
+$('#buttonRemove').click(function() {
+      $('.form2').submit(function (evt) {
+        console.log("event prevent");
     evt.preventDefault();
     $.ajax({
         type: 'POST',
-        url: 'companydirectory/libs/php/addStaff.php',
+        url: 'companydirectory/libs/php/deleteStaff.php',
         data: {
-         name: $("#fn").val(),
-         surname: $("#ln").val(),
-         email: $("#email").val(),
-         departmentId: $("#InputSelect3").val()
+            staff: $("#InputSelect2").val().split(" ")[0]
         },
         success: function(result){
-console.log("New Staff Added!" + result.data);
+            console.log("Staff Removed!" + result.data);
         }
     })
+    $(this).unbind('submit').submit()
 })
-})
+  })
+
 
   
 })

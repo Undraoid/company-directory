@@ -61,18 +61,45 @@ for(var i=0; i<result.data.length; i+=5){
 })
   
   
-$('#buttonAdd').click(function(){
-    $('form').submit(function (evt) {
-        evt.preventDefault();
+   $('#InputSelect5').change(function(){
+    $.ajax({
+        type: 'GET',
+            url: 'companydirectory/libs/php/filterLocationId.php',
+            dataType: 'json',
+            data: {
+             departmentId: $('#InputSelect5').val()
+            },
+            success: function(result){
+              console.log(result.data[i]);
+                var closeButton = $("#InputSelect4");
+                closeButton.empty();
+
+                for(var i=0; i<result.data.length; i+=5){
+
+                   var select = `
+                    <option>${result.data[i].firstName + " " + result.data[i].lastName}</option>
+                    `
+                
+                     closeButton.append(select);
+                  
+                }
+            }
+    })
+})
+  
+  
+    $("#addRecord").on('submit', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         $.ajax({
             type: 'POST',
             url: 'companydirectory/libs/php/addStaff.php',
             data: {
              name: $("#fn").val(),
              surname: $("#ln").val(),
-             titleJob: $('#jobtitle').val(),
              email: $("#email").val(),
-             departmentId: $("#InputSelect3").val()
+             departmentId: $("#InputSelect").val(),
+              titleJob: $("#jobtitle").val()
             },
             success: function(result){
     console.log("New Staff Added!" + result.data);
@@ -80,13 +107,11 @@ $('#buttonAdd').click(function(){
         })
         $(this).unbind('submit').submit()
     })
-    })
   
   
-$('#buttonRemove').click(function() {
-      $('.form2').submit(function (evt) {
-        console.log("event prevent");
-    evt.preventDefault();
+      $('#deleteRecord').on('submit', function(e) {
+     e.preventDefault();
+        e.stopPropagation();
     $.ajax({
         type: 'POST',
         url: 'companydirectory/libs/php/deleteStaff.php',
@@ -97,9 +122,8 @@ $('#buttonRemove').click(function() {
             console.log("Staff Removed!" + result.data);
         }
     })
-    $(this).unbind('submit').submit()
+   $(this).unbind('submit').submit()
 })
-  })
 
 
   

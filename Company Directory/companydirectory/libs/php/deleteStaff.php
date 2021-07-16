@@ -43,6 +43,51 @@
 		$output['status']['code'] = "400";
 		$output['status']['name'] = "executed";
 		$output['status']['description'] = "query failed";	
+		$output['data'] <?php
+
+
+	// example use from browser
+	// http://localhost/companydirectory/libs/php/getDepartmentByID.php?id=2
+	
+	// remove next two lines for production
+
+	ini_set('display_errors', 'On');
+	error_reporting(E_ALL);
+
+	$executionStartTime = microtime(true);
+
+	include("config.php");
+
+	$conn = new mysqli($host_name, $user_name, $password, $database);
+	
+	if (mysqli_connect_errno()) {
+		
+		$output['status']['code'] = "300";
+		$output['status']['name'] = "failure";
+		$output['status']['description'] = "database unavailable";
+		$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
+		$output['data'] = [];
+		
+		mysqli_close($conn);
+
+		echo json_encode($output); 
+
+		exit;
+
+	}	
+
+	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
+
+	$query = 'DELETE FROM personnel WHERE personnel.firstName = ' . $_REQUEST['staff'];
+
+
+	$result = $conn->query($query);
+	
+	if (!$result) {
+
+		$output['status']['code'] = "400";
+		$output['status']['name'] = "executed";
+		$output['status']['description'] = "query failed";	
 		$output['data'] = [];
 
 		mysqli_close($conn);

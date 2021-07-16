@@ -39,65 +39,176 @@
     </nav>
     
     
- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Add Staff</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">First Name</label>
-              <input type="text" class="form-control" id="fn" aria-describedby="emailHelp" placeholder="Enter First Name" required>
+
+ 
+
+         <div class="modal-header">
+
+ 
+
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Staff</h5>
+
+ 
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                <span aria-hidden="true">&times;</span>
+
+            </button>
+
+ 
+
+         </div>
+
+ 
+
+         <form id="addRecord">
+
+ 
+
+            <div class="modal-body">
+
+ 
+
+                <div class="form-group">
+
+ 
+
+                    <label for="exampleInputEmail1">First Name</label>
+
+                    <input type="text" class="form-control" id="fn" aria-describedby="emailHelp" placeholder="Enter First Name" required>
+
+ 
+
+                </div>
+
+ 
+
+                <div class="form-group">
+
+ 
+
+                    <label for="exampleInputEmail1">Last Name</label>
+
+                    <input type="text" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter Last Name" required>
+
+ 
+
+                </div>
+
+ 
+
+                <div class="form-group">
+
+ 
+
+                    <label for="exampleInputEmail1">Job Title</label>
+
+                    <input type="text" class="form-control" id="jobtitle" aria-describedby="emailHelp" placeholder="Enter Job Title" required>
+
+ 
+
+                </div>
+
+ 
+
+                <div class="form-group">
+
+ 
+
+                    <label for="exampleInputEmail1">Email address</label>
+
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+
+ 
+
+                </div>
+
+ 
+
+                <div class="form-group">
+
+ 
+
+                    <label for="InputSelect">Department</label>
+
+ 
+
+                    <select class="form-control" id="InputSelect">
+
+ 
+
+                        <option value="1">Human Resources</option>
+
+                        <option value="2">Sales</option>
+
+                        <option value="3">Marketing</option>
+
+                        <option value="4">Legal</option>
+
+                        <option value="5">Services</option>
+
+                        <option value="6">Research and Development</option>
+
+                        <option value="7">Product Management</option>
+
+                        <option value="8">Training</option>
+
+                        <option value="9">Support</option>
+
+                        <option value="10">Engineering</option>
+
+                        <option value="11">Accounting</option>
+
+                        <option value="12">Business Development</option> 
+
+ 
+
+                    </select>
+
+ 
+
+                </div>
+
+ 
+
             </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Last Name</label>
-              <input type="text" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter Last Name" required>
+
+ 
+
+            <div class="modal-footer">
+
+ 
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                <button type="submit" id="buttonAdd" class="btn btn-success">Add</button>
+
+ 
+
             </div>
-             <div class="form-group">
-              <label for="exampleInputEmail1">Job Title</label>
-              <input type="text" class="form-control" id="jobtitle" aria-describedby="emailHelp" placeholder="Enter Job Title" required>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
-            </div>
-            <div class="form-group">
-              <label for="InputSelect">Department</label>
-              <select class="form-control" id="InputSelect">
-                <option value="1">Human Resources</option>
-                <option value="2">Sales</option>
-                <option value="3">Marketing</option>
-                <option value="4">Legal</option>
-                <option value="5">Services</option>
-                <option value="6">Research and Development</option>
-                <option value="7">Product Management</option>
-                <option value="8">Training</option>
-                <option value="9">Support</option>
-                <option value="10">Engineering</option>
-                <option value="11">Accounting</option>
-                <option value="12">Business Development</option>
-              </select>
-            </div>
-     
-    
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" id="buttonAdd" class="btn btn-success">Add</button>
-          </form>
-        </div>
+
+ 
+
+        </form>
+
+ 
+
       </div>
-    </div>
-    </div>
+
+ 
+
+   </div>
+
+ 
+
+</div>
     
     
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -106,24 +217,25 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          <form id="deleteRecord">
           <div class="modal-body">
             
-            <form class="form2">
+            <form>
               <div class="form-group">
                 <label for="InputSelect">Department</label>
                 <select class="form-control" id="InputSelect3">
-           <option value="1">Human Resources</option>
+                  <option value="1">Human Resources</option>
               <option value="2">Sales</option>
-              <option value="3">Marketing</option>
-              <option value="4">Legal</option>
-              <option value="5">Services</option>
-              <option value="6">Research and Development</option>
-              <option value="7">Product Management</option>
-              <option value="8">Training</option>
-              <option value="9">Support</option>
-              <option value="10">Engineering</option>
-              <option value="11">Accounting</option>
-              <option value="12">Business Development</option>
+              <option value="2">Marketing</option>
+              <option value="1">Legal</option>
+              <option value="1">Services</option>
+              <option value="3">Research and Development</option>
+              <option value="3">Product Management</option>
+              <option value="4">Training</option>
+              <option value="4">Support</option>
+              <option value="5">Engineering</option>
+              <option value="5">Accounting</option>
+              <option value="3">Business Development</option>
                 </select>
               </div>
        
@@ -137,10 +249,11 @@
       
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
             <button type="submit" id="buttonRemove" class="btn btn-danger">Remove</button>
           </form>
           </div>
+        </form>
         </div>
       </div>
       </div>
@@ -160,7 +273,7 @@
               <form>
                 <div class="form-group">
                   <label for="InputSelect">Department</label>
-                  <select class="form-control" id="InputSelect">
+                  <select class="form-control" id="InputSelect5">
                     <option value="1">Human Resources</option>
                 <option value="2">Sales</option>
                 <option value="2">Marketing</option>
@@ -178,7 +291,7 @@
          
                 <div class="form-group">
                   <label for="InputSelect">Staff</label>
-                  <select class="form-control" id="InputSelect2">
+                  <select class="form-control" id="InputSelect4">
   
                   </select>
                 </div>

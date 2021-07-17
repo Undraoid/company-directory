@@ -7,367 +7,333 @@
     <meta name="author" content="Shashi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css"/>
     <title>Company Directory</title>
-  </head>
-  <body>
-                   
-      <!--Navbar-->
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-user-tie"></i>
-                Company-Directory
-              </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#" data-toggle="modal" id="addButton" data-target="#myModal">+ <i class="fas fa-user-tie"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" data-toggle="modal" data-target="#deleteModal">- <i class="fas fa-user-tie"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" data-toggle="modal"  data-target="#updateModal"># <i class="fas fa-user-tie"></i></a>
-                </li>
-              </ul>
-            </div>
-    </nav>
-    
-    
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+</head>
+<body>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <i class="fas fa-user-tie"></i>
+        Company-Directory
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" id="addButton" data-target="#myModal">+ <i
+                        class="fas fa-user-tie"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#deleteModal">- <i
+                        class="fas fa-user-tie"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#updateModal"># <i
+                        class="fas fa-user-tie"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Staff</h5>
+
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
 
- 
-
-         <div class="modal-header">
-
- 
-
-            <h5 class="modal-title" id="exampleModalLongTitle">Add Staff</h5>
-
- 
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-                <span aria-hidden="true">&times;</span>
-
-            </button>
-
- 
-
-         </div>
-
- 
-
-         <form id="addRecord">
-
- 
-
-            <div class="modal-body">
-
- 
-
-                <div class="form-group">
-
- 
-
-                    <label for="exampleInputEmail1">First Name</label>
-
-                    <input type="text" class="form-control" id="fn" aria-describedby="emailHelp" placeholder="Enter First Name" required>
-
- 
-
-                </div>
-
- 
-
-                <div class="form-group">
-
- 
-
-                    <label for="exampleInputEmail1">Last Name</label>
-
-                    <input type="text" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter Last Name" required>
-
- 
-
-                </div>
-
- 
-
-                <div class="form-group">
-
- 
-
-                    <label for="exampleInputEmail1">Job Title</label>
-
-                    <input type="text" class="form-control" id="jobtitle" aria-describedby="emailHelp" placeholder="Enter Job Title" required>
-
- 
-
-                </div>
-
- 
-
-                <div class="form-group">
-
- 
-
-                    <label for="exampleInputEmail1">Email address</label>
-
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
-
- 
-
-                </div>
-
- 
-
-                <div class="form-group">
-
- 
-
-                    <label for="InputSelect">Department</label>
-
- 
-
-                    <select class="form-control" id="InputSelect">
-
- 
-
-                        <option value="1">Human Resources</option>
-
-                        <option value="2">Sales</option>
-
-                        <option value="3">Marketing</option>
-
-                        <option value="4">Legal</option>
-
-                        <option value="5">Services</option>
-
-                        <option value="6">Research and Development</option>
-
-                        <option value="7">Product Management</option>
-
-                        <option value="8">Training</option>
-
-                        <option value="9">Support</option>
-
-                        <option value="10">Engineering</option>
-
-                        <option value="11">Accounting</option>
-
-                        <option value="12">Business Development</option> 
-
- 
-
-                    </select>
-
- 
-
-                </div>
-
- 
 
             </div>
 
- 
 
-            <div class="modal-footer">
+            <form id="addRecord">
 
- 
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="modal-body">
 
-                <button type="submit" id="buttonAdd" class="btn btn-success">Add</button>
 
- 
+                    <div class="form-group">
 
-            </div>
 
- 
+                        <label for="exampleInputEmail1">First Name</label>
 
-        </form>
+                        <input type="text" class="form-control" id="fn" aria-describedby="emailHelp"
+                               placeholder="Enter First Name" required>
 
- 
 
-      </div>
+                    </div>
 
- 
 
-   </div>
+                    <div class="form-group">
 
- 
+
+                        <label for="exampleInputEmail1">Last Name</label>
+
+                        <input type="text" class="form-control" id="ln" aria-describedby="emailHelp"
+                               placeholder="Enter Last Name" required>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+
+                        <label for="exampleInputEmail1">Job Title</label>
+
+                        <input type="text" class="form-control" id="jobtitle" aria-describedby="emailHelp"
+                               placeholder="Enter Job Title" required>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+
+                        <label for="exampleInputEmail1">Email address</label>
+
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                               placeholder="Enter email" required>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+
+                        <label for="InputSelect">Department</label>
+
+
+                        <select class="form-control" id="InputSelect">
+
+
+                                   <option value="1">Human Resources</option>
+        <option value="2">Sales</option>
+        <option value="3">Marketing</option>
+        <option value="4">Legal</option>
+        <option value="5">Services</option>
+        <option value="6">Research and Development</option>
+        <option value="7">Product Management</option>
+        <option value="8">Training</option>
+        <option value="9">Support</option>
+        <option value="10">Engineering</option>
+        <option value="11">Accounting</option>
+        <option value="12">Business Development</option>
+
+                        </select>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="modal-footer">
+
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    <button type="submit" id="buttonAdd" class="btn btn-success">Add</button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
 
 </div>
-    
-    
-     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Remove Staff</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form id="deleteRecord">
-          <div class="modal-body">
-            
-            <form>
-              <div class="form-group">
-                <label for="InputSelect">Department</label>
-                <select class="form-control" id="InputSelect3">
-                  <option value="1">Human Resources</option>
-              <option value="2">Sales</option>
-              <option value="2">Marketing</option>
-              <option value="1">Legal</option>
-              <option value="1">Services</option>
-              <option value="3">Research and Development</option>
-              <option value="3">Product Management</option>
-              <option value="4">Training</option>
-              <option value="4">Support</option>
-              <option value="5">Engineering</option>
-              <option value="5">Accounting</option>
-              <option value="3">Business Development</option>
-                </select>
-              </div>
-       
-              <div class="form-group">
-                <label for="InputSelect">Staff</label>
-                <select class="form-control" id="InputSelect2">
 
-                </select>
-              </div>
-       
-      
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
-            <button type="submit" id="buttonRemove" class="btn btn-danger">Remove</button>
-          </form>
-          </div>
-        </form>
-        </div>
-      </div>
-      </div>
-    
-    
-    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Update Staff</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Remove Staff</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="deleteRecord">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="InputSelect3">Department</label>
+                        <select class="form-control" id="InputSelect3">
+        <option value="1">Human Resources</option>
+        <option value="2">Sales</option>
+        <option value="3">Marketing</option>
+        <option value="4">Legal</option>
+        <option value="5">Services</option>
+        <option value="6">Research and Development</option>
+        <option value="7">Product Management</option>
+        <option value="8">Training</option>
+        <option value="9">Support</option>
+        <option value="10">Engineering</option>
+        <option value="11">Accounting</option>
+        <option value="12">Business Development</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InputSelect2">Staff</label>
+                        <select class="form-control" id="InputSelect2">
+
+                        </select>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
+                    <button type="button" id="buttonRemove" class="btn btn-danger">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalTitle">Update Staff</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-              
-              <form>
-                <div class="form-group">
-                  <label for="InputSelect">Department</label>
-                  <select class="form-control" id="InputSelect5">
-                    <option value="1">Human Resources</option>
-                <option value="2">Sales</option>
-                <option value="2">Marketing</option>
-                <option value="1">Legal</option>
-                <option value="1">Services</option>
-                <option value="3">Research and Development</option>
-                <option value="3">Product Management</option>
-                <option value="4">Training</option>
-                <option value="4">Support</option>
-                <option value="5">Engineering</option>
-                <option value="5">Accounting</option>
-                <option value="3">Business Development</option>
-                  </select>
-                </div>
-         
-                <div class="form-group">
-                  <label for="InputSelect">Staff</label>
-                  <select class="form-control" id="InputSelect4">
-  
-                  </select>
-                </div>
-         
-                <div class="form-group">
-                  <label for="InputSelect">Info</label>
-                  <select class="form-control" id="InputSelect2">
-                 <option>First Name</option>
-                 <option>Last Name</option>
-                 <option>Job Title</option>
-                 <option>Email</option>
-                 <option>Department</option>
 
-                  </select>
-                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="InputSelect">Department</label>
+                        <select class="form-control" id="InputSelect5">
+        <option value="1">Human Resources</option>
+        <option value="2">Sales</option>
+        <option value="3">Marketing</option>
+        <option value="4">Legal</option>
+        <option value="5">Services</option>
+        <option value="6">Research and Development</option>
+        <option value="7">Product Management</option>
+        <option value="8">Training</option>
+        <option value="9">Support</option>
+        <option value="10">Engineering</option>
+        <option value="11">Accounting</option>
+        <option value="12">Business Development</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Change</label>
-                  <input type="text" class="form-control" id="changeInput" aria-describedby="emailHelp" placeholder="Enter New Info" required>
+                    <div class="form-group">
+                        <label for="InputSelect">Staff</label>
+                        <select class="form-control" id="InputSelect4">
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InputSelect">Info</label>
+                        <select class="form-control" id="InputInfo4">
+                            <option value="firstName">First Name</option>
+                            <option value="lastName">Last Name</option>
+                            <option value="email">Email</option>
+                            <option value="departmentID">Department</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="changeInput4">Change</label>
+                        <input type="text" class="form-control" id="changeInput4" aria-describedby="emailHelp"
+                               placeholder="Enter New Info" required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeButton4" data-dismiss="modal">Close</button>
+                        <button type="submit" id="buttonUpdate" class="btn btn-primary">Update</button>
+                    </div>
+
                 </div>
-        
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
-              <button type="submit" id="buttonRemove" class="btn btn-primary">Update</button>
-            </form>
-            </div>
-          </div>
         </div>
-        </div>
+    </div>
+</div>
 
 
-    
-    
-           <div class="d-flex flex-row-reverse">
-            <button type="button" class="btn btn-outline-dark form-control p-2" id="searchButton">Search</button>
-            <select size=""  id="departmentSelect" name="departmentSelect" class="form-control p-2">
-              <option value="1">Human Resources</option>
-              <option value="2">Sales</option>
-              <option value="3">Marketing</option>
-              <option value="4">Legal</option>
-              <option value="5">Services</option>
-              <option value="6">Research and Development</option>
-              <option value="7">Product Management</option>
-              <option value="8">Training</option>
-              <option value="9">Support</option>
-              <option value="10">Engineering</option>
-              <option value="11">Accounting</option>
-              <option value="12">Business Development</option>
-            </select>
-             
-             
-             
-          </div>
-    
-    <table class="table">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Job Title</th>
-                <th scope="col">Email</th>
-                <th scope="col">Department</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+<div class="d-flex flex-row-reverse">
+    <button type="button" class="btn btn-outline-dark form-control p-2" id="searchButton">Search</button>
+    <select size="" id="departmentSelect" name="departmentSelect" class="form-control p-2">
+        <option value="1">Human Resources</option>
+        <option value="2">Sales</option>
+        <option value="3">Marketing</option>
+        <option value="4">Legal</option>
+        <option value="5">Services</option>
+        <option value="6">Research and Development</option>
+        <option value="7">Product Management</option>
+        <option value="8">Training</option>
+        <option value="9">Support</option>
+        <option value="10">Engineering</option>
+        <option value="11">Accounting</option>
+        <option value="12">Business Development</option>
+    </select>
 
 
+</div>
+
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Email</th>
+        <th scope="col">Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
 
-<script src="js/jquery.min.js"></script> 
-          <script src="js/navbar.js"></script>
-          <script src="js/dataDisplay.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-  </html>
+<script src="js/jquery.min.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/dataDisplay.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -32,11 +32,11 @@
                         class="fas fa-user-tie"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#deleteModal">- <i
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#deleteModal" onclick="resetVal()">- <i
                         class="fas fa-user-tie"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#updateModal"># <i
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#updateModal" onclick="valReset()"># <i
                         class="fas fa-user-tie"></i></a>
             </li>
         </ul>
@@ -335,5 +335,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+  
+  <script>
+function resetVal() {
+  setTimeout(function(){ $("#InputSelect3").val("1").change(); }, 500);
+}
+
+function valReset() {
+  setTimeout(function(){ $("#InputSelect5").val("1").change(); }, 500);
+}
+</script>
+
 </body>
 </html>

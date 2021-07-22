@@ -153,8 +153,10 @@ const staff = firstName.innerText;
 
    $(document).on('click', '#editUser', function(e) {
     const clickedElement = this.parentNode.parentNode.parentNode.querySelector("tr #tableFirstName");
+     console.log(clickedElement.innerText.toString());
     
     $(document).on('click', '#buttonUpdate', function(e) {
+      $('#updateModal').modal('toggle');
 
       $.ajax({
           type: 'POST',
@@ -163,7 +165,7 @@ const staff = firstName.innerText;
           data: {
               info: $('#InputInfo4').val(),
               staff: $('#changeInput4').val(),
-              previous: clickedElement.innerText
+              previous: clickedElement.innerText.toString()
           },
           success: function (result) {
               console.log("Staff updated!");

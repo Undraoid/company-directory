@@ -7,7 +7,13 @@ $(function () {
     });
 });
 
+//id="iconSettings"
 
-
-
+$(function () {
+    $("#iconSettings").hover(function () {
+        $(this).addClass("active");
+    }, function () {
+        $(this).removeClass("active");
+    });
+});
 

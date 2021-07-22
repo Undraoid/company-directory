@@ -1,7 +1,7 @@
 //companydirectory/libs/php/getDepartmentByID.php
 
 $(document).ready(function () {
-    $('#searchButton').click(function () {
+    $('#departmentSelect').change(function () {
         $.ajax({
             type: 'GET',
             url: 'companydirectory/libs/php/filterLocationId.php',
@@ -19,11 +19,11 @@ $(document).ready(function () {
 
                     var row = `
     <tr>
-      <th scope="row">${result.data[i].firstName}</th>
-      <td>${result.data[i].lastName}</td>
-      <td>${result.data[i].jobTitle}</td>
-      <td>${result.data[i].email}</td>
-      <td>${result.data[i].name}</td>
+      <th scope="row" id="tableFirstName">${result.data[i].firstName}</th>
+      <td id="tableLastName">${result.data[i].lastName}</td>
+      <td id="tableJobTitle">${result.data[i].jobTitle}</td>
+      <td id="tableEmail">${result.data[i].email}</td>
+      <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-user-alt-slash" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-user-edit" style="float:right;" id="iconSettings"></i></a></td>
     </tr>`
 
                     table.append(row);
@@ -54,6 +54,7 @@ $(document).ready(function () {
                     `
 
                     closeButton.append(select);
+
 
                 }
             }
@@ -107,41 +108,72 @@ $(document).ready(function () {
         $(this).unbind('submit').submit()
     })
 
-    $(document).on('click', '#buttonRemove', function(e) {
-        const fullName = $("#InputSelect2").val().split(' ');
-        const staff = fullName.length > 0 ? fullName[0] : '';
-        $.ajax({
-            type: 'POST',
-            url: 'companydirectory/libs/php/deleteStaff.php',
-            dataType: 'json',
-            data: {
-                staff,
-            },
-            success: function (result) {
-                console.log("Staff Removed!");
-               $('#deleteModal').modal('toggle');
-            }
-        })
-    });
+    $(document).on('click', '#removeUser', function(e) {
+      
+        var validate = confirm("Are you sure you want to remove this user?");
+        var removeIcons = $("i#iconSettings.fas.fa-user-alt-slash");
 
-    $(document).on('click', '#buttonUpdate', function(e) {
-        const fullName = $("#InputSelect4").val().split(' ');
-        const staff = fullName.length > 0 ? fullName[0] : '';
-        const info = $('#InputInfo4').val();
-        const value = $('#changeInput4').val();
-        $.ajax({
-            type: 'POST',
-            url: 'companydirectory/libs/php/updateStaff.php',
-            dataType: 'json',
-            data: {
-                staff,
-                info,
-                value,
-            },
-            success: function (result) {
-                console.log("Staff updated!");
-                $('#updateModal').modal('toggle');
-            }
+if(validate == true){
+for(var i=0;i<removeIcons.length;i++){
+  removeIcons[i].onclick = function(){
+    console.log(this.parentNode.parentNode.parentNode.querySelector("tr #tableLastName"));
+    var firstName = this.parentNode.parentNode.parentNode.querySelector("tr #tableFirstName");
+    var lastName = this.parentNode.parentNode.parentNode.querySelector("tr #tableEmail");
+    var email = this.parentNode.parentNode.parentNode.querySelector("tr #tableJobTitle");
+    var department = this.parentNode.parentNode.parentNode.querySelector("tr #tableDepartment");
+    
+const staff = firstName.innerText;
+
+    $.ajax({
+        type: 'POST',
+        url: 'companydirectory/libs/php/deleteStaff.php',
+        dataType: 'json',
+        data: {
+          staff,
+        },
+        success: function (result) {
+         //$('#deleteModal').modal('toggle');
+        var value = $("#departmentSelect").val()
+        function valChange() {
+  setTimeout(function(){ $("#departmentSelect").val(value).change(); }, 500);
+}
+          
+          valChange();
+        
+        }
         })
-    });
+  }
+}
+} else {
+  console.log("Cancel!");
+}
+
+
+});
+
+   $(document).on('click', '#editUser', function(e) {
+    const clickedElement = this.parentNode.parentNode.parentNode.querySelector("tr #tableFirstName");
+    
+    $(document).on('click', '#buttonUpdate', function(e) {
+
+      $.ajax({
+          type: 'POST',
+          url: 'companydirectory/libs/php/updateStaff.php',
+          dataType: 'json',
+          data: {
+              info: $('#InputInfo4').val(),
+              staff: $('#changeInput4').val(),
+              previous: clickedElement.innerText
+          },
+          success: function (result) {
+              console.log("Staff updated!");
+              $('#updateModal').modal('toggle');
+            var value = $("#departmentSelect").val()
+        function valChange() {
+  setTimeout(function(){ $("#departmentSelect").val(value).change(); }, 500);
+}
+          }
+      })
+    })
+  });
 })

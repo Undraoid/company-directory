@@ -43,7 +43,6 @@ $(document).ready(function () {
                 departmentId: $('#InputSelect3').val()
             },
             success: function (result) {
-                console.log(result.data[i]);
                 var closeButton = $("#InputSelect2");
                 closeButton.empty();
 
@@ -103,6 +102,12 @@ $(document).ready(function () {
             success: function (result) {
                 console.log("New Staff Added!" + result.data);
                $('#myModal').modal('toggle');
+              var value = $("#departmentSelect").val()
+        function valChange() {
+  setTimeout(function(){ $("#departmentSelect").val(value).change(); }, 500);
+}
+          
+          valChange();
             }
         })
         $(this).unbind('submit').submit()
@@ -152,12 +157,19 @@ const staff = firstName.innerText;
 });
 
    $(document).on('click', '#editUser', function(e) {
-    const clickedElement = this.parentNode.parentNode.parentNode.querySelector("tr #tableFirstName");
-     console.log(clickedElement.innerText.toString());
+    const clickedElement = this.parentNode.parentNode.querySelector("tr #tableFirstName").innerText;
+     localStorage.clear();
+     localStorage.setItem("name",clickedElement)
+     console.log(clickedElement);
     
     $(document).on('click', '#buttonUpdate', function(e) {
       $('#updateModal').modal('toggle');
-
+      var value = $("#departmentSelect").val()
+        function valChange() {
+  setTimeout(function(){ $("#departmentSelect").val(value).change(); }, 500);
+}
+          
+          valChange();
       $.ajax({
           type: 'POST',
           url: 'companydirectory/libs/php/updateStaff.php',
@@ -165,7 +177,7 @@ const staff = firstName.innerText;
           data: {
               info: $('#InputInfo4').val(),
               staff: $('#changeInput4').val(),
-              previous: clickedElement.innerText.toString()
+              previous: localStorage.getItem("name")
           },
           success: function (result) {
               console.log("Staff updated!");

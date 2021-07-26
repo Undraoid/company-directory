@@ -157,7 +157,7 @@ for(i=0;i<result.data.length; i++){
                   reset();
       $.ajax({
           type: 'POST',
-          url: 'companydirectory/libs/php/updateLocation.php',
+          url: 'companydirectory/libs/php/updateDepartment.php',
           dataType: 'json',
           data: {
               info: $('#InputInfo4').val(),

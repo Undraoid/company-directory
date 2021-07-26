@@ -11,7 +11,7 @@
 
 	header('Content-Type: application/json; charset=UTF-8');
 
-	$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
+	$conn = new mysqli($host_name, $user_name, $password, $database);
 
 	if (mysqli_connect_errno()) {
 		
@@ -29,7 +29,7 @@
 
 	}	
 
-	$query = 'SELECT id, name, locationID FROM department';
+	$query = 'SELECT * FROM department';
 
 	$result = $conn->query($query);
 	

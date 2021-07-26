@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Company Admin App">
+    <meta name="keywords" content="HTML, CSS, Bootstrap, JavaScript, Leaflet, AJAX, JSON, PHP">
+    <meta name="author" content="Shashi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css"/>
+    <title>Company Directory</title>
+</head>
+<body>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <i class="fas fa-user-tie"></i>
+        Company-Directory
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Personnel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Department</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="location.html">Location</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Department</h5>
+
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+
+
+            </div>
+
+
+            <form id="addRecord">
+
+
+                <div class="modal-body">
+
+
+                    <div class="form-group">
+
+
+                        <label for="exampleInputEmail1">Department Name</label>
+
+                        <input type="text" class="form-control" id="fn" aria-describedby="emailHelp"
+                               placeholder="Enter New Department" required>
+
+
+                    </div>
+
+                    <div class="form-group">
+
+
+                        <label for="InputSelect">Location</label>
+
+
+                        <select class="form-control" id="InputSelect">
+<!--Location here-->
+                        </select>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="modal-footer">
+
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    <button type="submit" id="buttonAdd" class="btn btn-success">Add</button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+   <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalTitle">Update Department</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <div class="form-group">
+                        <label for="InputSelect">Info</label>
+                        <select class="form-control" id="InputInfo4">
+                            <option value="name">Name</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="changeInput4">Change</label>
+                        <input type="text" class="form-control" id="changeInput4" aria-describedby="emailHelp"
+                               placeholder="Enter New Info" required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeButton4" data-dismiss="modal">Close</button>
+                        <button type="submit" id="buttonUpdate" class="btn btn-primary">Update</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+
+
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Location</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<a href="#" id="addButton" data-toggle="modal" data-target="#myModal" id="iconSettings"><i class="fas fa-user-plus" style="color:green; margin-left: 10px;"></i></a>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/departmentDisplay.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+  
+  <script>
+  function defaultVal() {
+  setTimeout(function(){ $("#departmentSelect").val("1").change(); }, 500);
+}
+defaultVal();
+  
+function resetVal() {
+  setTimeout(function(){ $("#InputSelect3").val("1").change(); }, 500);
+}
+
+function valReset() {
+  setTimeout(function(){ $("#InputSelect5").val("1").change(); }, 500);
+}
+</script>
+
+</body>
+</html>

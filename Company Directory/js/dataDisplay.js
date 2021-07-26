@@ -1,6 +1,37 @@
 //companydirectory/libs/php/getDepartmentByID.php
 
 $(document).ready(function () {
+    $.ajax({
+        type: 'GET',
+        url: 'companydirectory/libs/php/getAllDepartments.php',
+        dataType: 'json',
+        success: function (result){
+          for(i=0;i< result.data.length; i++){ 
+                    console.log(result.data[i].id);
+               var departments = `
+<option value=${result.data[i].id}>${result.data[i].name}</option>
+`
+               $("#departmentSelect").append(departments);
+          }
+        }
+    })
+  
+  $.ajax({
+        type: 'GET',
+        url: 'companydirectory/libs/php/getAllDepartments.php',
+        dataType: 'json',
+        success: function (result){
+          for(i=0;i< result.data.length; i++){ 
+                    console.log(result.data[i].id);
+               var departments = `
+<option value=${result.data[i].id}>${result.data[i].name}</option>
+`
+               $("#InputSelect").append(departments);
+          }
+        }
+    })
+
+
     $('#departmentSelect').change(function () {
         $.ajax({
             type: 'GET',

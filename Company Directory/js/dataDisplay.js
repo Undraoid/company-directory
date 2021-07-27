@@ -143,50 +143,42 @@ $(document).ready(function () {
         })
         $(this).unbind('submit').submit()
     })
+  
 
     $(document).on('click', '#removeUser', function(e) {
-      
-        var validate = confirm("Are you sure you want to remove this user?");
-        var removeIcons = $("i#iconSettings.fas.fa-user-alt-slash");
-
-if(validate == true){
-for(var i=0;i<removeIcons.length;i++){
-  removeIcons[i].onclick = function(){
-    console.log(this.parentNode.parentNode.parentNode.querySelector("tr #tableLastName"));
-    var firstName = this.parentNode.parentNode.parentNode.querySelector("tr #tableFirstName");
-    var lastName = this.parentNode.parentNode.parentNode.querySelector("tr #tableEmail");
-    var email = this.parentNode.parentNode.parentNode.querySelector("tr #tableJobTitle");
-    var department = this.parentNode.parentNode.parentNode.querySelector("tr #tableDepartment");
     
-const staff = firstName.innerText;
-
-    $.ajax({
-        type: 'POST',
-        url: 'companydirectory/libs/php/deleteStaff.php',
-        dataType: 'json',
-        data: {
-          staff,
-        },
-        success: function (result) {
-         //$('#deleteModal').modal('toggle');
-        var value = $("#departmentSelect").val()
-        function valChange() {
-  setTimeout(function(){ $("#departmentSelect").val(value).change(); }, 500);
-}
-          
-          valChange();
+        var removeIcons = $("i#iconSettings.fas.fa-user-alt-slash");
+        for (var i = 0; i < removeIcons.length; i++) {
+          removeIcons[i].onclick = function () {
+            console.log(
+              this.parentNode.parentNode.parentNode.querySelector("tr #tableFirstName")
+            );
+            var name =
+              this.parentNode.parentNode.parentNode.querySelector("tr #tableFirstName");
         
+            const staff = name.innerText;
+        
+            var validate = confirm("Are you sure you want to remove this user?");
+            if (validate == true) {
+              $.ajax({
+                type: "POST",
+                url: "companydirectory/libs/php/deleteStaff.php",
+                dataType: "json",
+                data: {
+                  staff: staff,
+                },
+                success: function (result) {
+                  //$('#deleteModal').modal('toggle');
+                },
+              });
+            } else {
+              console.log("Cancel!");
+            }
+        
+          };
         }
-        })
-  }
-}
-} else {
-  console.log("Cancel!");
-}
-
-
-});
-
+      
+      })
    $(document).on('click', '#editUser', function(e) {
     const clickedElement = this.parentNode.parentNode.querySelector("tr #tableFirstName").innerText;
      localStorage.clear();

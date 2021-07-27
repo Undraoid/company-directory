@@ -114,36 +114,39 @@ for(i=0;i<result.data.length; i++){
   
     $(document).on('click', '#removeUser', function(e) {
     
-        var validate = confirm("Are you sure you want to remove this user?");
         var removeIcons = $("i#iconSettings.fas.fa-user-alt-slash");
-  
-  if(validate == true){
-  for(var i=0;i<removeIcons.length;i++){
-  removeIcons[i].onclick = function(){
-     console.log(this.parentNode.parentNode.parentNode.querySelector("tr #tableName"));;
-    var name = this.parentNode.parentNode.parentNode.querySelector("tr #tableName");
-    
-  const location = name.innerText;
-  reset();
-    $.ajax({
-        type: 'POST',
-        url: 'companydirectory/libs/php/deleteDepartment.php',
-        dataType: 'json',
-        data: {
-          staff: location,
-        },
-        success: function (result) {
-         //$('#deleteModal').modal('toggle');
-  
+        for (var i = 0; i < removeIcons.length; i++) {
+          removeIcons[i].onclick = function () {
+            console.log(
+              this.parentNode.parentNode.parentNode.querySelector("tr #tableName")
+            );
+            var name =
+              this.parentNode.parentNode.parentNode.querySelector("tr #tableName");
+        
+            const location = name.innerText;
+        
+            var validate = confirm("Are you sure you want to remove this user?");
+            if (validate == true) {
+              $.ajax({
+                type: "POST",
+                url: "companydirectory/libs/php/deleteDepartment.php",
+                dataType: "json",
+                data: {
+                  staff: location,
+                },
+                success: function (result) {
+                  //$('#deleteModal').modal('toggle');
+                  reset();
+                },
+              });
+            } else {
+              console.log("Cancel!");
+            }
+        
+          };
         }
-        })
-  }
-  }
-  } else {
-  console.log("Cancel!");
-  }
-  
-  })
+      
+      })
 
 
   $(document).on('click', '#editUser', function(e) {

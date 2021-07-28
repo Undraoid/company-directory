@@ -12,7 +12,7 @@ $(document).ready(function () {
   
                 var row = `
   <tr>
-  <td id="tableLocation">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:75px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+  <td id="tableLocation" data-value=${result.data[i].id}>${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:75px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
   </tr>`
   
                 table.append(row);
@@ -27,26 +27,27 @@ $(document).ready(function () {
       console.log("refreshing")
        $(".loader").show();
         $.ajax({
-            type: 'GET',
-            url: 'companydirectory/libs/php/getLocation.php',
-            dataType: 'json',
-            success: function (result) {
-                var table = $("tbody");
-                table.empty();
-    
-                for (var i = 0; i < result.data.length; i ++) {
-    
-                    var row = `
-    <tr>
-      <td id="tableLocation">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
-    </tr>`
-    
-                    table.append(row);
-    
-                }
+        type: 'GET',
+        url: 'companydirectory/libs/php/getLocation.php',
+        dataType: 'json',
+        success: function (result) {
+            var table = $("tbody");
+            table.empty();
+  
+            for (var i = 0; i < result.data.length; i ++) {
+  
+                var row = `
+  <tr>
+  <td id="tableLocation" data-value=${result.data[i].id}>${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()" data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-minus" style="float:right; margin-left:75px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+  </tr>`
+  
+                table.append(row);
+  
             }
-        });
-       $(".loader").hide();
+        }
+    });
+  
+  $(".loader").hide();
     }
   
   
@@ -70,24 +71,63 @@ $(document).ready(function () {
   
   
   
-  $(document).on('click', '#removeUser', function(e) {
-      
+ $(document).on('click', '#removeUser', function(e) {
+    
     var removeIcons = $("i#iconSettings.fas.fa-minus");
     for (var i = 0; i < removeIcons.length; i++) {
       removeIcons[i].onclick = function () {
         console.log(
-          this.parentNode.parentNode.parentNode.querySelector("tr #tableLocation")
+          this.parentNode.parentNode.parentNode.querySelector("tr #tableLocation"),
         );
-        var name =
-          this.parentNode.parentNode.parentNode.querySelector("tr #tableLocation");
+        var name = this.parentNode.parentNode.parentNode.querySelector("tr #tableLocation");
+        localStorage.setItem("delete",name.innerText)
+        var locationValue = name.dataset.value;
+        console.log(locationValue);
+        const location = localStorage.getItem("delete")
+
+        $.ajax({
+          type: "GET",
+          url: "companydirectory/libs/php/countLocation.php",
+          dataType: "json",
+          data: {
+            locationValue,
+          },
+          success: function (result) {
+            var department = result.data[0]['count(*)'];
+console.log(result.data[0]['count(*)']);
+
+  if(department == 0){
+    $('#ModalConfirm').modal('toggle');
+    $(document).on('click', '#deleteConfirm', function(e) {
+      $.ajax({
+        type: "POST",
+        url: "companydirectory/libs/php/deleteLocation.php",
+        dataType: "json",
+        data: {
+          staff: location,
+        },
+        success: function (result) {
+          $('#ModalConfirm').modal('toggle');
+          reset();
+        },
+      });
+    })
+
+  } else {
+    $('#ModalCancel').modal('toggle');
+    var cancelMessage = $("#cancelMessage")
+    cancelMessage.html(`You cannot delete this location, there are ${department} departments assigned to it`)
+
+  }
+          },
+        });
+
     
-        const location = name.innerText;
-    
-        var validate = confirm("Are you sure you want to remove this user?");
+       /* var validate = confirm("Are you sure you want to remove this user?");
         if (validate == true) {
           $.ajax({
             type: "POST",
-            url: "companydirectory/libs/php/deleteLocation.php",
+            url: "companydirectory/libs/php/deleteDepartment.php",
             dataType: "json",
             data: {
               staff: location,
@@ -99,12 +139,13 @@ $(document).ready(function () {
           });
         } else {
           console.log("Cancel!");
-        }
+        } */
     
       };
     }
   
   })
+
   
   
  $(document).on('click', '#editUser', function(e) {

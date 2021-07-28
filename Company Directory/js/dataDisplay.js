@@ -30,7 +30,8 @@ $(document).ready(function () {
           }
         }
     })
-
+  
+     $(".loader").hide();
 
     $('#departmentSelect').change(function () {
         $.ajax({
@@ -54,7 +55,7 @@ $(document).ready(function () {
       <td id="tableLastName">${result.data[i].lastName}</td>
       <td id="tableJobTitle">${result.data[i].jobTitle}</td>
       <td id="tableEmail">${result.data[i].email}</td>
-      <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-user-alt-slash" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-user-edit" style="float:right;" id="iconSettings"></i></a></td>
+      <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
     </tr>`
 
                     table.append(row);
@@ -64,6 +65,7 @@ $(document).ready(function () {
         });
 
     })
+  
 
     $('#InputSelect3').change(function () {
         $.ajax({
@@ -147,7 +149,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#removeUser', function(e) {
     
-        var removeIcons = $("i#iconSettings.fas.fa-user-alt-slash");
+        var removeIcons = $("i#iconSettings.fas.fa-minus");
         for (var i = 0; i < removeIcons.length; i++) {
           removeIcons[i].onclick = function () {
             console.log(
@@ -213,4 +215,12 @@ $(document).ready(function () {
       })
     })
   });
+
+  $("#searchBar").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+
 })

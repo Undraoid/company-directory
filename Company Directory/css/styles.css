@@ -12,3 +12,14 @@ table {
 #fn, #ln, #email, #InputSelect, #InputSelect2, #InputSelect3, #jobtitle, #changeInput, #InputSelect4, #InputSelect5, #InputInfo4, #changeInput4{
     width: 75%;
 }
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

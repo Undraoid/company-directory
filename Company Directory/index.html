@@ -172,53 +172,24 @@
 </div>
 
 
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Remove Staff</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div id="deleteRecord">
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="InputSelect3">Department</label>
-                        <select class="form-control" id="InputSelect3">
-        <!--<option value="1">Human Resources</option>
-        <option value="2">Sales</option>
-        <option value="3">Marketing</option>
-        <option value="4">Legal</option>
-        <option value="5">Services</option>
-        <option value="6">Research and Development</option>
-        <option value="7">Product Management</option>
-        <option value="8">Training</option>
-        <option value="9">Support</option>
-        <option value="10">Engineering</option>
-        <option value="11">Accounting</option>
-        <option value="12">Business Development</option>-->
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="InputSelect2">Staff</label>
-                        <select class="form-control" id="InputSelect2">
-
-                        </select>
-                    </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
-                    <button type="button" id="buttonRemove" class="btn btn-danger">Remove</button>
-                </div>
-            </div>
-        </div>
+   <div class="modal fade" id="ModalConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Remove Staff</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Are you sure you want to delete entry?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" id="deleteConfirm">Yes</button>
+      </div>
     </div>
+  </div>
 </div>
 
 
@@ -235,20 +206,29 @@
             <div class="modal-body">
 
                 <div>
-                    <div class="form-group">
-                        <label for="InputSelect">Info</label>
-                        <select class="form-control" id="InputInfo4">
-                            <option value="firstName">First Name</option>
-                            <option value="lastName">Last Name</option>
-                            <option value="email">Email</option>
-
-                        </select>
+                   <div class="form-group">
+                        <label for="changeInput4">First Name</label>
+                        <input type="text" class="form-control" id="changeInput4" aria-describedby="emailHelp"
+                               placeholder="Enter First Name" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="changeInput4">Change</label>
-                        <input type="text" class="form-control" id="changeInput4" aria-describedby="emailHelp"
-                               placeholder="Enter New Info" required>
+                        <label for="changeInput4">Last Name</label>
+                        <input type="text" class="form-control" id="changeInput5" aria-describedby="emailHelp"
+                               placeholder="Enter Last Name" required>
+                    </div>
+                  
+                  <div class="form-group">
+                        <label for="changeInput4">Email Address</label>
+                        <input type="text" class="form-control" id="changeInput6" aria-describedby="emailHelp"
+                               placeholder="Enter New Email" required>
+                    </div>
+                  
+                  <div class="form-group">
+                        <label for="InputSelect">Department</label>
+                        <select class="form-control" id="SelectInput3">
+
+                        </select>
                     </div>
 
                     <div class="modal-footer">

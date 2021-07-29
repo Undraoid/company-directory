@@ -35,13 +35,33 @@ $(document).ready(function () {
     });
 
   $(".loader").hide();
+  
+   $.ajax({
+        type: 'GET',
+        url: 'companydirectory/libs/php/getLocation.php',
+        dataType: 'json',
+        success: function (result) {
+var addSelect = $("#InputSelect");
+
+for(i=0;i<result.data.length; i++){
+    var options = `
+  <option value=${result.data[i].id}>${result.data[i].name}</option>
+    `
+  addSelect.append(options);
+}
+
+       
+
+        }
+    });
+
 
     $.ajax({
         type: 'GET',
         url: 'companydirectory/libs/php/getLocation.php',
         dataType: 'json',
         success: function (result) {
-var addSelect = $("#InputSelect");
+var addSelect = $("#SelectInput3");
 
 for(i=0;i<result.data.length; i++){
     var options = `
@@ -207,8 +227,8 @@ for(i=0;i<result.data.length; i++){
           url: 'companydirectory/libs/php/updateDepartment.php',
           dataType: 'json',
           data: {
-              info: $('#InputInfo4').val(),
-              staff: $('#changeInput4').val(),
+              departmentName: $('#changeInput4').val(),
+              locationName: $('#SelectInput3').val(),
               previous: localStorage.getItem("name")
           },
           success: function (result) {

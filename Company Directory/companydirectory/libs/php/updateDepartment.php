@@ -34,34 +34,11 @@ if (mysqli_connect_errno()) {
 
 // $_REQUEST used for development / debugging. Remember to cange to $_POST for production
 
-if (!isset($_REQUEST['info']) || empty($_REQUEST['info']) || $_REQUEST['info'] == '') {
-    $output['status']['code'] = "400";
-    $output['status']['name'] = "executed";
-    $output['status']['description'] = "Info required.";
-    $output['data'] = [];
-    echo json_encode($output);
-    die();
-}
 
-if (!isset($_REQUEST['staff']) || empty($_REQUEST['staff']) || $_REQUEST['staff'] == '') {
-    $output['status']['code'] = "400";
-    $output['status']['name'] = "executed";
-    $output['status']['description'] = "Staff required.";
-    $output['data'] = [];
-    echo json_encode($output);
-    die();
-}
-
-if (!isset($_REQUEST['previous']) || empty($_REQUEST['previous']) || $_REQUEST['previous'] == '') {
-    $output['status']['code'] = "400";
-    $output['status']['name'] = "executed";
-    $output['status']['description'] = "Previous required.";
-    $output['data'] = [];
-    echo json_encode($output);
-    die();
-}
-
-$query = 'UPDATE department SET department.'.$_REQUEST['info'].' = "'.$_REQUEST['staff'].'" WHERE department.name = "'.$_REQUEST['previous'].'"';
+$departmentName = $_REQUEST['departmentName'];
+$locationName = $_REQUEST['locationName'];
+$previous = $_REQUEST['previous'];
+$query = "UPDATE department SET department.name = '$departmentName',department.locationID = '$locationName' WHERE department.name = '$previous'";
 echo $query;
 $result = $conn->query($query);
 if (!$result) {

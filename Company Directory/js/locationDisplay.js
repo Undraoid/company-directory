@@ -156,19 +156,18 @@ console.log(result.data[0]['count(*)']);
   
   $(document).on('click', '#buttonUpdate', function(e) {
     $('#updateModal').modal('toggle');
-              reset();
     $.ajax({
         type: 'POST',
         url: 'companydirectory/libs/php/updateLocation.php',
         dataType: 'json',
         data: {
-            info: $('#InputInfo4').val(),
-            staff: $('#changeInput4').val(),
+            locationName: $('#changeInput4').val(),
             previous: localStorage.getItem("name")
         },
         success: function (result) {
             console.log("Staff updated!");
             $('#updateModal').modal('toggle');
+                       reset();
         }
     })
   })

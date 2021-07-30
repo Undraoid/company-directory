@@ -3,7 +3,7 @@
 $(document).ready(function () {
     $.ajax({
         type: 'GET',
-        url: 'companydirectory/libs/php/getAllDepartments.php',
+        url: 'companydirectory/libs/php/getDepartmentAlphabetical.php',
         dataType: 'json',
         success: function (result){
           for(i=0;i< result.data.length; i++){ 
@@ -18,7 +18,7 @@ $(document).ready(function () {
   
   $.ajax({
         type: 'GET',
-        url: 'companydirectory/libs/php/getAllDepartments.php',
+        url: 'companydirectory/libs/php/getDepartmentAlphabetical.php',
         dataType: 'json',
         success: function (result){
           for(i=0;i< result.data.length; i++){ 
@@ -33,7 +33,7 @@ $(document).ready(function () {
   
   $.ajax({
         type: 'GET',
-        url: 'companydirectory/libs/php/getAllDepartments.php',
+        url: 'companydirectory/libs/php/getDepartmentAlphabetical.php',
         dataType: 'json',
         success: function (result){
           for(i=0;i< result.data.length; i++){ 
@@ -252,9 +252,17 @@ $(".loader").hide();
   
    $(document).on('click', '#editUser', function(e) {
     const clickedElement = this.parentNode.parentNode.querySelector("tr #tableFirstName").innerText;
+    const ln = this.parentNode.parentNode.querySelector("tr #tableLastName").innerText;
+     const mail = this.parentNode.parentNode.querySelector("tr #tableEmail").innerText;
+     const department = $("#departmentSelect").val();
      localStorage.clear();
      localStorage.setItem("name",clickedElement)
      console.log(clickedElement);
+     
+     $("#changeInput4").val(clickedElement);
+     $("#changeInput5").val(ln);
+     $("#changeInput6").val(mail);
+     $("#SelectInput3").val(department);
     
     $(document).on('click', '#buttonUpdate', function(e) {
       $('#updateModal').modal('toggle');

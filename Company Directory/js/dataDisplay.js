@@ -48,38 +48,66 @@ $(document).ready(function () {
   
      $(".loader").hide();
 
-    $('#departmentSelect').change(function () {
-        $.ajax({
-            type: 'GET',
-            url: 'companydirectory/libs/php/filterLocationId.php',
-            dataType: 'json',
-            data: {
-                departmentId: $('#departmentSelect').val()
-            },
-            success: function (result) {
-                var table = $("tbody");
-                table.empty();
+     $('#departmentSelect').change(function () {
+    if($('#departmentSelect').val() == "Staff"){
+      $.ajax({
+        type: 'GET',
+        url: 'companydirectory/libs/php/getAllPersonnel.php',
+        dataType: 'json',
+        success: function (result) {
+            var table = $("tbody");
+            table.empty();
 
-                for (var i = 0; i < result.data.length; i += 5) {
-                    console.log(result.data[i]);
+            for (var i = 0; i < result.data.length; i ++) {
 
 
-                    var row = `
-    <tr>
-      <th scope="row" id="tableFirstName">${result.data[i].firstName}</th>
-      <td id="tableLastName">${result.data[i].lastName}</td>
-      <td id="tableJobTitle">${result.data[i].jobTitle}</td>
-      <td id="tableEmail">${result.data[i].email}</td>
-      <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
-    </tr>`
+                var row = `
+<tr>
+  <th scope="row" id="tableFirstName">${result.data[i].firstName}</th>
+  <td id="tableLastName">${result.data[i].lastName}</td>
+  <td id="tableJobTitle">${result.data[i].jobTitle}</td>
+  <td id="tableEmail">${result.data[i].email}</td>
+  <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+</tr>`
 
-                    table.append(row);
+                table.append(row);
 
-                }
             }
-        });
+        }
+    });
+    } else {
+      $.ajax({
+          type: 'GET',
+          url: 'companydirectory/libs/php/filterLocationId.php',
+          dataType: 'json',
+          data: {
+              departmentId: $('#departmentSelect').val()
+          },
+          success: function (result) {
+              var table = $("tbody");
+              table.empty();
 
-    })
+              for (var i = 0; i < result.data.length; i += 5) {
+                  console.log(result.data[i]);
+
+
+                  var row = `
+  <tr>
+    <th scope="row" id="tableFirstName">${result.data[i].firstName}</th>
+    <td id="tableLastName">${result.data[i].lastName}</td>
+    <td id="tableJobTitle">${result.data[i].jobTitle}</td>
+    <td id="tableEmail">${result.data[i].email}</td>
+    <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+  </tr>`
+
+                  table.append(row);
+
+              }
+          }
+      });
+    }
+  })
+
   
     function reset(){
     $(".loader").show();

@@ -67,7 +67,7 @@ $(document).ready(function () {
   <td id="tableLastName">${result.data[i].lastName}</td>
   <td id="tableJobTitle">${result.data[i].jobTitle}</td>
   <td id="tableEmail">${result.data[i].email}</td>
-  <td id="tableDepartment">${result.data[i].name}</td>
+  <td id="tableDepartment" data-value=${result.data[i].departmentID}>${result.data[i].name}</td>
 <td><a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
 </tr>`
 
@@ -98,7 +98,7 @@ $(document).ready(function () {
     <td id="tableLastName">${result.data[i].lastName}</td>
     <td id="tableJobTitle">${result.data[i].jobTitle}</td>
     <td id="tableEmail">${result.data[i].email}</td>
-    <td id="tableDepartment">${result.data[i].name}</td>
+    <td id="tableDepartment" data-value=${result.data[i].departmentID}>${result.data[i].name}</td>
 <td><a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
   </tr>`
 
@@ -134,7 +134,7 @@ $(document).ready(function () {
       <td id="tableLastName">${result.data[i].lastName}</td>
       <td id="tableJobTitle">${result.data[i].jobTitle}</td>
       <td id="tableEmail">${result.data[i].email}</td>
-      <td id="tableDepartment">${result.data[i].name}</td>
+      <td id="tableDepartment" data-value=${result.data[i].departmentID}>${result.data[i].name}</td>
 <td><a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
     </tr>`
 
@@ -285,7 +285,7 @@ $(".loader").hide();
     const clickedElement = this.parentNode.parentNode.querySelector("tr #tableFirstName").innerText;
     const ln = this.parentNode.parentNode.querySelector("tr #tableLastName").innerText;
      const mail = this.parentNode.parentNode.querySelector("tr #tableEmail").innerText;
-     const department = $("#departmentSelect").val();
+     const department = this.parentNode.parentNode.querySelector("tr #tableDepartment");
      localStorage.clear();
      localStorage.setItem("name",clickedElement)
      console.log(clickedElement);
@@ -293,7 +293,7 @@ $(".loader").hide();
      $("#changeInput4").val(clickedElement);
      $("#changeInput5").val(ln);
      $("#changeInput6").val(mail);
-     $("#SelectInput3").val(department);
+     $("#SelectInput3").val(department.dataset.value);
     
     $(document).on('click', '#buttonUpdate', function(e) {
       $('#updateModal').modal('toggle');

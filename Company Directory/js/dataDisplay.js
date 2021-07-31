@@ -67,7 +67,8 @@ $(document).ready(function () {
   <td id="tableLastName">${result.data[i].lastName}</td>
   <td id="tableJobTitle">${result.data[i].jobTitle}</td>
   <td id="tableEmail">${result.data[i].email}</td>
-  <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+  <td id="tableDepartment">${result.data[i].name}</td>
+<td><a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
 </tr>`
 
                 table.append(row);
@@ -97,7 +98,8 @@ $(document).ready(function () {
     <td id="tableLastName">${result.data[i].lastName}</td>
     <td id="tableJobTitle">${result.data[i].jobTitle}</td>
     <td id="tableEmail">${result.data[i].email}</td>
-    <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+    <td id="tableDepartment">${result.data[i].name}</td>
+<td><a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
   </tr>`
 
                   table.append(row);
@@ -132,7 +134,8 @@ $(document).ready(function () {
       <td id="tableLastName">${result.data[i].lastName}</td>
       <td id="tableJobTitle">${result.data[i].jobTitle}</td>
       <td id="tableEmail">${result.data[i].email}</td>
-      <td id="tableDepartment">${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+      <td id="tableDepartment">${result.data[i].name}</td>
+<td><a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
     </tr>`
 
                     table.append(row);

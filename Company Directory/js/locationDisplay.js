@@ -12,7 +12,8 @@ $(document).ready(function () {
   
                 var row = `
   <tr>
-  <td id="tableLocation" data-value=${result.data[i].id}>${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:75px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+  <td id="tableLocation" data-value=${result.data[i].id}>${result.data[i].name}</td>
+<td><a href="#" id="removeUser" onclick="resetVal()"><i class="fas fa-minus" style="float:right; margin-left:75px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
   </tr>`
   
                 table.append(row);
@@ -38,7 +39,8 @@ $(document).ready(function () {
   
                 var row = `
   <tr>
-  <td id="tableLocation" data-value=${result.data[i].id}>${result.data[i].name}<a href="#" id="removeUser" onclick="resetVal()" data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-minus" style="float:right; margin-left:75px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+  <td id="tableLocation" data-value=${result.data[i].id}>${result.data[i].name}</td>
+<td><a href="#" id="removeUser" onclick="resetVal()" data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-minus" style="float:right; margin-left:75px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
   </tr>`
   
                 table.append(row);
@@ -154,6 +156,7 @@ console.log(result.data[0]['count(*)']);
    localStorage.setItem("name",clickedElement)
    console.log(clickedElement);
   
+   $("#changeInput4").val(clickedElement);
   $(document).on('click', '#buttonUpdate', function(e) {
     $('#updateModal').modal('toggle');
     $.ajax({

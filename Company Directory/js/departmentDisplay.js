@@ -20,7 +20,8 @@ $(document).ready(function () {
                         var row = `
         <tr>
           <th scope="row" id="tableName" data-value=${result.data[i].id}>${result.data[i].name}</th>
-          <td id="tableLocation" data-value=${locationResult.data[i].id}>${locationResult.data[i].name}<a href="#" id="removeUser" onclick="resetVal() data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+          <td id="tableLocation" data-value=${locationResult.data[i].id}>${locationResult.data[i].name}</td>
+<td><a href="#" id="removeUser" onclick="resetVal() data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
         </tr>`
 
         
@@ -98,7 +99,8 @@ for(i=0;i<result.data.length; i++){
                         var row = `
         <tr>
           <th scope="row" id="tableName" data-value=${result.data[i].id}>${result.data[i].name}</th>
-          <td id="tableLocation">${locationResult.data[i].name}<a href="#" id="removeUser" onclick="resetVal() data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
+          <td id="tableLocation">${locationResult.data[i].name}</td>
+<td><a href="#" id="removeUser" onclick="resetVal() data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-minus" style="float:right; margin-left:50px; color:red;" id="iconSettings"></i></a><a href="#" id="editUser" onclick="valReset()" data-toggle="modal" data-target="#updateModal"><i class="fas fa-pencil-alt" style="float:right;" id="iconSettings"></i></a></td>
         </tr>`
 
         
@@ -215,12 +217,13 @@ for(i=0;i<result.data.length; i++){
 
   $(document).on('click', '#editUser', function(e) {
     const clickedElement = this.parentNode.parentNode.querySelector("tr #tableName").innerText;
-    const location = this.parentNode.parentNode.querySelector("tr #tableLocation").innerText;
+    const location = this.parentNode.parentNode.querySelector("tr #tableLocation");
      localStorage.clear();
      localStorage.setItem("name",clickedElement)
      console.log(clickedElement);
     
-    
+    $("#changeInput4").val(clickedElement);
+    $("#SelectInput3").val(location.dataset.value);
     $(document).on('click', '#buttonUpdate', function(e) {
       $('#updateModal').modal('toggle');
                   reset();

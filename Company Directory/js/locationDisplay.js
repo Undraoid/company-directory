@@ -159,6 +159,7 @@ console.log(result.data[0]['count(*)']);
    $("#changeInput4").val(clickedElement);
   $(document).on('click', '#buttonUpdate', function(e) {
     $('#updateModal').modal('toggle');
+     setTimeout(function(){ reset(); }, 500);
     $.ajax({
         type: 'POST',
         url: 'companydirectory/libs/php/updateLocation.php',
@@ -170,7 +171,7 @@ console.log(result.data[0]['count(*)']);
         success: function (result) {
             console.log("Staff updated!");
             $('#updateModal').modal('toggle');
-                       reset();
+                 
         }
     })
   })
